@@ -1,7 +1,9 @@
 "use strict";
+
 let canvas;
 let ctx;
-let i = 1;
+let i = 0;
+let aaa = [];
 
 function init() {
     canvas = document.getElementById("myCanvas");
@@ -18,12 +20,12 @@ function draw() {
     ctx.textBaseline = "top";
     ctx.textAlign = "left";
     ctx.fillStyle = "white";
-    ctx.fillText("羊が？",0,0);
+    ctx.fillText("羊が？", 0, 0);
     ctx.strokeStyle = "blue";
-    ctx.strokeText("羊が？",0,0);
+    ctx.strokeText("羊が？", 0, 0);
     ctx.stroke();
 }
-window.onload = function() {
+window.onload = function () {
     init();
 };
 
@@ -34,39 +36,39 @@ function init2() {
     canvas.style.left = "17%";
     canvas.style.top = "560px";
     ctx = canvas.getContext("2d");
-
     draw2();
 }
 
 function draw2() {
+    ctx.clearRect(0, 0, 200, 200);
     ctx.font = "64px san-serif";
     ctx.textBaseline = "top";
     ctx.textAlign = "left";
     ctx.fillStyle = "white";
-    ctx.fillText(i+"匹",0,0);
+    ctx.fillText(aaa[0] + "匹", 0, 0);
     ctx.strokeStyle = "blue";
-    ctx.strokeText(i+"匹",0,0);
+    ctx.strokeText(aaa[0] + "匹", 0, 0);
     ctx.stroke();
 };
 
 function init3() {
     canvas = document.getElementById("ans2");
-    canvas.style.position = "fixed";
+    canvas.style.position = "absolute";
     canvas.style.left = "47%";
     canvas.style.top = "560px";
     ctx = canvas.getContext("2d");
-
     draw3();
 }
 
 function draw3() {
+    ctx.clearRect(0, 0, 200, 200);
     ctx.font = "64px san-serif";
     ctx.textBaseline = "top";
     ctx.textAlign = "left";
     ctx.fillStyle = "white";
-    ctx.fillText(i+"匹",0,0);
+    ctx.fillText(aaa[1] + "匹", 0, 0);
     ctx.strokeStyle = "blue";
-    ctx.strokeText(i+"匹",0,0);
+    ctx.strokeText(aaa[1] + "匹", 0, 0);
     ctx.stroke();
 };
 
@@ -80,28 +82,46 @@ function init4() {
 }
 
 function draw4() {
+    ctx.clearRect(0, 0, 200, 200);
     ctx.font = "64px san-serif";
     ctx.textBaseline = "top";
     ctx.textAlign = "left";
     ctx.fillStyle = "white";
-    ctx.fillText(i+"匹",0,0);
+    ctx.fillText(aaa[2] + "匹", 0, 0);
     ctx.strokeStyle = "blue";
-    ctx.strokeText(i+"匹",0,0);
+    ctx.strokeText(aaa[2] + "匹", 0, 0);
     ctx.stroke();
 };
 
 //----------------
 
+//--jを求める関数
+function jj() {
+    return (i - 5) + Math.ceil(Math.random() * 4);
+}
+
+//--kを求める関数
+function kk() {
+    return (i) + Math.ceil(Math.random() * 4);
+}
+
+//aaaに代入する関数
+function aaaa() {
+    aaa = [];
+    aaa.push(i);
+    aaa.splice(Math.ceil(Math.random() * 2) - 1, 0, jj());
+    aaa.splice(Math.ceil(Math.random() * 2), 0, kk());
+}
 
 
-
-$("#count").on("click",function(){
-    let aaa = [];
+$("#count").on("click", function () {
+    i++;
+    aaaa();
     $("#count").css({
         "box-shadow": "none",
         "transform": "translate(0px, 5px)"
     })
-    setTimeout(function(){
+    setTimeout(function () {
         $("#count").hide();
         $("#sheep1").show();
         $("#sheep2").show();
@@ -112,6 +132,41 @@ $("#count").on("click",function(){
         init2();
         init3();
         init4();
-    },500);
+    }, 500);
 })
 
+$("#ans1").on("click", function () {
+    if (aaa[0] == i) {
+        i++;
+        aaaa();
+        init2();
+        init3();
+        init4();
+    } else {
+        $("#sleepy").slideDown('fast');
+    }
+})
+
+$("#ans2").on("click", function () {
+    if (aaa[1] == i) {
+        i++;
+        aaaa();
+        init2();
+        init3();
+        init4();
+    } else {
+        $("#sleepy").slideDown('fast');
+    }
+})
+
+$("#ans3").on("click", function () {
+    if (aaa[2] == i) {
+        i++;
+        aaaa();
+        init2();
+        init3();
+        init4();
+    } else {
+        $("#sleepy").slideDown('fast');
+    }
+})
