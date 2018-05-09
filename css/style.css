@@ -1,0 +1,22 @@
+.content {
+  position: relative;
+  z-index: -1; }
+  .content img {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto; }
+
+.contents p {
+  font-size: 20px; }
+
+.contents {
+  position: fixed;
+  top: 30%;
+  right: 50%;
+  transform: translate3d(0, -50%, 0); }
+
+.question {
+  background-color: #fff;
+  padding: 30px 50px 30px 50px; }
