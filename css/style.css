@@ -1,12 +1,12 @@
 .content {
-  position: relative;
-  z-index: -1; }
+  position: relative; }
   .content img {
     position: fixed;
     top: 0;
     right: 0;
     width: 100%;
-    height: auto; }
+    height: auto;
+    z-index: -1; }
 
 .contents p {
   font-size: 20px; }
@@ -20,3 +20,36 @@
 .question {
   background-color: #fff;
   padding: 30px 50px 30px 50px; }
+
+.count {
+  width: 300px;
+  margin: auto;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.4); }
+  .count p {
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 300px;
+    font-size: 30px;
+    color: white;
+    background-color: #ffff0080; }
+
+.sheep {
+  position: relative; }
+  .sheep img {
+    width: 300px;
+    height: 200px; }
+  .sheep .sheep1 {
+    display: none;
+    position: absolute;
+    top: 500px;
+    left: 10%; }
+  .sheep .sheep2 {
+    display: none;
+    position: absolute;
+    top: 500px;
+    left: 40%; }
+  .sheep .sheep3 {
+    display: none;
+    position: absolute;
+    top: 500px;
+    left: 70%; }
